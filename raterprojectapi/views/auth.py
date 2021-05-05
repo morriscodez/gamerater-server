@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
-from raterprojectapi.models import Gamer
+# from raterprojectapi.models import Gamer
 
 @csrf_exempt
 def login_user(request):
@@ -14,7 +14,7 @@ def login_user(request):
         request -- The full HTTP request object
     '''
 
-    req_body = json.loads(request.body.decode())
+    req_body = json.loads(request.body.encode())
 
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
