@@ -11,3 +11,4 @@ class Game(models.Model):
     duration = CharField(max_length=50)
     age = CharField(max_length=50)
     player = models.ForeignKey("Player", on_delete=models.CASCADE)
+    categories = models.ManyToManyField("Category", through="GameCategory", related_name="games")
