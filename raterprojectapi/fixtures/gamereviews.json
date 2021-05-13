@@ -1,0 +1,32 @@
+[
+    {
+        "model": "raterprojectapi.gamereview",
+        "pk": 1,
+        "fields": {
+            "review": "everyone teamed up on me but I still won",
+            "rating": 5,
+            "game": 1,
+            "player": 1
+        }
+    },
+    {
+        "model": "raterprojectapi.gamereview",
+        "pk": 1,
+        "fields": {
+            "review": "may the force be with me",
+            "rating": 5,
+            "game": 2,
+            "player": 1
+        }
+    },
+    {
+        "model": "raterprojectapi.gamereview",
+        "pk": 1,
+        "fields": {
+            "review": "my friends just talked through the whole thing and ate chips with dip",
+            "rating": 5,
+            "game": 3,
+            "player": 1
+        }
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "model": "raterprojectapi.gamepictures",
+        "pk": 1,
+        "fields": {
+            "img": "https://boardgamegeek.com/image/38674/ticket-ride",
+            "game": 1,
+            "player": 1
+        }
+    }
+]

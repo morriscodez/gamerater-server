@@ -1,0 +1,44 @@
+[
+    {
+        "model": "raterprojectapi.game",
+        "pk": 1,
+        "fields": {
+            "title": "Ticket To Ride",
+            "description": "Trains, trains, and more trains",
+            "designer": "Hasbro",
+            "release": "2010-01-01",
+            "number_of_players": "5",
+            "duration": "80min",
+            "age": "8+",
+            "player": 1
+        }
+    },
+    {
+        "model": "raterprojectapi.game",
+        "pk": 2,
+        "fields": {
+            "title": "Star Wars Risk",
+            "description": "Rule The Galaxy",
+            "designer": "LucasArts",
+            "release": "1999-01-01",
+            "number_of_players": "6",
+            "duration": "3 Hours",
+            "age": "8+",
+            "player": 1
+        }
+    },
+    {
+        "model": "raterprojectapi.game",
+        "pk": 3,
+        "fields": {
+            "title": "Resistance",
+            "description": "Discover who is the spy",
+            "designer": "Hasbro",
+            "release": "2011-01-01",
+            "number_of_players": "6",
+            "duration": "30min",
+            "age": "14+",
+            "player": 1
+        }
+    }
+]
