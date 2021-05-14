@@ -6,5 +6,6 @@
             "name": "raterproject",
             "database": "db.sqlite3"
         }
-    ]
+    ],
+    "python.pythonPath": "/Users/DylanMorris/.local/share/virtualenvs/game-rater-E3fH4WWx/bin/python"
 }
