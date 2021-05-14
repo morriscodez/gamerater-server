@@ -62,7 +62,7 @@ class GameView(ViewSet):
 
         gamecategory = self.request.query_params.get('category', None)
         if gamecategory is not None:
-            games = games.filter(category__id=gamecategory)
+            games = games.filter(categories__id=gamecategory)
 
         serializer = GameSerializer(
             games, many=True, context={'request': request}
