@@ -33,7 +33,7 @@ class GameView(ViewSet):
         except ValidationError as ex:
             return Response({"reason: ex.message"}, status=status.HTTP_400_BAD_REQUEST)
 
-    def retrieve(Self, request, pk):
+    def retrieve(self, request, pk):
 
         try:
             game = Game.objects.get(pk=pk)
@@ -82,15 +82,22 @@ class GameView(ViewSet):
         gameplayer = Player.objects.get(pk=request.data["playerId"])
         game.player = gameplayer
         gamecategory = GameCategory.objects.get(pk=request.data['gameCategoryId'])
-        game.category = gamecategory
+        game.categories = gamecategory
         game.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'label')
+
+
 class GameSerializer(serializers.ModelSerializer):
+    categories = CategorySerializer(many=True)
+    
     class Meta:
         model = Game
-        fields = ('id', 'title', 'description', 'designer', 'release', 'numberOfPlayers', 'duration', 'age', 'playerId', 'gameCategoryId')
-        depth = 1
-
+        fields = ('id', 'title', 'description', 'designer', 'release', 'number_of_players', 'duration', 'age', 'player', 'categories')
+        # depth = 1
 

@@ -3,9 +3,24 @@
         "model": "raterprojectapi.gamecategory",
         "pk": 1,
         "fields": {
-            "category": "",
-
-            "game": ""
+            "category": 1,
+            "game": 1
+        }
+    },
+    {
+        "model": "raterprojectapi.gamecategory",
+        "pk": 2,
+        "fields": {
+            "category": 1,
+            "game": 2
+        }
+    },
+    {
+        "model": "raterprojectapi.gamecategory",
+        "pk": 3,
+        "fields": {
+            "category": 9,
+            "game": 3
         }
     }
 ]
