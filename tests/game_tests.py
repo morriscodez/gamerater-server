@@ -77,3 +77,36 @@ class GameTests(APITestCase):
         self.assertEqual(json_response["duration"], "90")
         self.assertEqual(json_response["age"], "10")
         self.assertEqual(json_response["categories"][0]["id"], 1)
+
+    
+    def test_create_game(self):
+        """ 
+        Ensure we can create a new game
+        """
+
+        url = "/games"
+        data = {
+            "title": "Ticket To Ride",
+            "description": "fun",
+            "designer": "Hasbro",
+            "release": "2010-01-01",
+            "numberOfPlayers": 6,
+            "duration": "90",
+            "age": "10",
+            "playerId": 1
+        }
+
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token)
+
+        response = self.client.post(url, data, format="json")
+
+        json_response = json.loads(response.content)
+
+        self.assertEqual(json_response["title"], "Ticket To Ride")
+        self.assertEqual(json_response["description"], "fun")
+        self.assertEqual(json_response["designer"], "Hasbro")
+        self.assertEqual(json_response["release"], "2010-01-01")
+        self.assertEqual(json_response["number_of_players"], 6)
+        self.assertEqual(json_response["duration"], "90")
+        self.assertEqual(json_response["age"], "10")
+        self.assertEqual(json_response["player"], 1)
