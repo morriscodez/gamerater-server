@@ -39,6 +39,10 @@ class GameView(ViewSet):
             game = Game.objects.get(pk=pk)
             serializer = GameSerializer(game, context={'request': request})
             return Response(serializer.data)
+        
+        except Game.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
         except Exception as ex:
             return HttpResponseServerError(ex)
 
@@ -71,7 +75,7 @@ class GameView(ViewSet):
 
     def update(self, request, pk):
 
-        game = Game()
+        game = Game.objects.get(pk=pk)
         game.title = request.data["title"]
         game.description = request.data["description"]
         game.designer = request.data["designer"]
@@ -81,8 +85,8 @@ class GameView(ViewSet):
         game.age = request.data["age"]
         gameplayer = Player.objects.get(pk=request.data["playerId"])
         game.player = gameplayer
-        gamecategory = GameCategory.objects.get(pk=request.data['gameCategoryId'])
-        game.categories = gamecategory
+        gamecategory = Category.objects.get(pk=request.data['categoryId'])
+        game.categories.add(gamecategory)
         game.save()
 
         return Response({}, status=status.HTTP_204_NO_CONTENT)
