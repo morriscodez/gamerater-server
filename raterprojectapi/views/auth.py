@@ -2,8 +2,10 @@ import json
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
+from raterprojectapi.models import Player
 from rest_framework.authtoken.models import Token
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
 # from raterprojectapi.models import Gamer
 
 @csrf_exempt
@@ -58,8 +60,7 @@ def register_user(request):
     )
 
     # Now save the extra info in the raterprojectapi_gamer table
-    gamer = Gamer.objects.create(
-        bio=req_body['bio'],
+    gamer = Player.objects.create(
         user=new_user
     )
 
@@ -71,4 +72,4 @@ def register_user(request):
 
     # Return the token to the client
     data = json.dumps({"token": token.key})
-    return HttpResponse(data, content_type='application/json')
+    return HttpResponse(data, content_type='application/json', status=status.HTTP_201_CREATED)
